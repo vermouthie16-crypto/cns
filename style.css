@@ -104,14 +104,14 @@ img {
     display: flex;
     gap: 15px;
 }
-.photo-frame {
+.avatar-frame {
     display: block !important;
     width: 280px;
     height: 280px;
     position: relative;
     margin: 0 auto; 
 }
-.photo-frame img {
+.avatar-frame img {
     display: block !important;
     width: 100% !important;
     height: 100% !important;
