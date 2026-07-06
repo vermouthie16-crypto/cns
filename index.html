@@ -652,7 +652,7 @@
 </section>
  
 <footer>
-  Được làm với <span class="heart">💜</span> bởi Vũ Khánh Linh — cảm ơn đã ghé thăm!
+  made by Vũ Khánh Linh — cảm ơn đã ghé thăm!
 </footer>
  
 <script>
@@ -731,6 +731,55 @@
   }, { threshold: 0.4 });
   sections.forEach(s=>navIo.observe(s));
 </script>
- 
+
+  <script>
+// Tự động chèn CSS trực tiếp vào trang web bằng JavaScript để ép hoạt họa chạy
+const sparkleStyle = document.createElement('style');
+sparkleStyle.innerHTML = `
+    .super-sparkle {
+        position: fixed !important;
+        pointer-events: none !important;
+        transform: translate(-50%, -50%) !important;
+        color: #ffd700 !important;
+        text-shadow: 0 0 8px #ffd700, 0 0 15px #ff8c00 !important;
+        z-index: 999999 !important;
+        font-family: 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif !important;
+        line-height: 1 !important;
+        animation: flyFade 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards !important;
+    }
+    @keyframes flyFade {
+        0% { transform: translate(-50%, -50%) scale(0) rotate(0deg); opacity: 1; }
+        100% { transform: translate(calc(-50% + var(--mx)), calc(-50% + var(--my))) scale(1.3) rotate(120deg); opacity: 0; }
+    }
+`;
+document.head.appendChild(sparkleStyle);
+
+// Lắng nghe sự kiện di chuyển chuột
+document.addEventListener('mousemove', function(e) {
+    // Tạo hạt lấp lánh
+    const p = document.createElement('div');
+    p.className = 'super-sparkle';
+    
+    // Chọn ngẫu nhiên biểu tượng lấp lánh
+    const icons = ['✨','◦'];
+    p.innerText = icons[Math.floor(Math.random() * icons.length)];
+    
+    // Sử dụng clientX, clientY (Tọa độ cố định trên màn hình) thay vì pageX, pageY
+    p.style.left = e.clientX + 'px';
+    p.style.top = e.clientY + 'px';
+    
+    // Kích thước ngẫu nhiên
+    p.style.fontSize = (Math.random() * 12 + 12) + 'px';
+    
+    // Hướng bay ngẫu nhiên
+    p.style.setProperty('--mx', ((Math.random() - 0.5) * 50) + 'px');
+    p.style.setProperty('--my', ((Math.random() - 0.5) * 50) + 'px');
+    
+    document.body.appendChild(p);
+    
+    // Xóa hạt sau 0.7 giây
+    setTimeout(() => p.remove(), 500);
+});
+</script>
 </body>
 </html>
